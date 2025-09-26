@@ -67,12 +67,44 @@ export function AppHeader() {
       <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container flex h-14 items-center">
           <div className="mr-auto flex items-center">
-             <Link href="/" className="flex items-center space-x-2">
-                <AppLogo />
-                <span className="hidden font-bold sm:inline-block">
-                CampusVerse
-                </span>
-            </Link>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <button className="flex items-center space-x-2">
+                  <AppLogo />
+                  <span className="hidden font-bold sm:inline-block">
+                  CampusVerse
+                  </span>
+                </button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="w-56" align="start" forceMount>
+                 <DropdownMenuLabel>Navigation</DropdownMenuLabel>
+                 <DropdownMenuSeparator />
+                 <DropdownMenuGroup>
+                    <DropdownMenuItem asChild>
+                      <Link href="/?category=cultural"><Paintbrush className="mr-2 h-4 w-4" />Cultural</Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem asChild>
+                      <Link href="/?category=tech"><Code className="mr-2 h-4 w-4" />Tech</Link>
+                    </DropdownMenuItem>
+                     <DropdownMenuItem asChild>
+                      <Link href="/?category=clubs"><Users2 className="mr-2 h-4 w-4" />Clubs</Link>
+                    </DropdownMenuItem>
+                 </DropdownMenuGroup>
+                 <DropdownMenuSeparator />
+                 <DropdownMenuItem asChild>
+                  <Link href="/profile">
+                    <User className="mr-2 h-4 w-4" />
+                    <span>Profile</span>
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/settings">
+                    <UserCog className="mr-2 h-4 w-4" />
+                    <span>Settings</span>
+                  </Link>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </div>
           <div className="flex flex-1 items-center justify-end space-x-4">
             <ThemeToggle />
